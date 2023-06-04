@@ -2,4 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.indexRoutes = void 0;
 const express_1 = require("express");
+const restaurantRoutes_1 = require("./restaurantRoutes");
 exports.indexRoutes = (0, express_1.Router)();
+exports.indexRoutes.use("/restaurants", restaurantRoutes_1.restaurantRoutes);

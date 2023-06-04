@@ -1,4 +1,8 @@
 import { Router } from "express";
 
-export const indexRoutes = Router();
+import { restaurantRoutes } from "./restaurantRoutes";
 
+export const indexRoutes: Router = Router();
+
+
+indexRoutes.use("/restaurants", restaurantRoutes);
