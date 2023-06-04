@@ -1,0 +1,38 @@
+{
+  "name": "project-notice_board",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll",
+    "start": "tsc-watch --onSuccess 'nodemon ./dist/app.js'",
+		"construct": "nodemon --exec ts-node ./src/app.ts --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+	"dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.2.0",
+    "typeorm": "^0.3.12"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/morgan": "^1.9.4",
+		"@types/jest": "29.5.1",
+    "nodemon": "^2.0.21",
+    "supertest": "^6.3.3",
+    "tsc-watch": "^6.0.0",
+    "typescript": "^5.0.2",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0"
+  }
+}
