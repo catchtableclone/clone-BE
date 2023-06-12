@@ -6,15 +6,9 @@ import { RestaurantQueryParams } from "../../src/controllers/interfaces/restaura
 export class mockRestaurantService extends RestaurantServices {
 	constructor() { super(new RestaurantModel()); }
 
-	async getRestaurants(_: RestaurantQueryParams): Promise<any> {
-		return [ { id: "TEST", name: "TEST" } ];
-	}
+	async getRestaurants(_: RestaurantQueryParams): Promise<any> {}
 
-	async getRestaurantDetail(restaurantId: string): Promise<any> {
-		return { id: restaurantId, name: "TEST" };
-	}
+	async getRestaurantDetail(_: string): Promise<any> {}
 
-	async getMenues(restaurantId: string): Promise<any> {
-		return { id: restaurantId, name: "TEST" };
-	}
+	async getMenues(_: string): Promise<any> {}
 }
