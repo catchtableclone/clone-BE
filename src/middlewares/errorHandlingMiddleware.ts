@@ -7,3 +7,8 @@ export const globalErrorHandler = (err: CustomError, _: Request, res: Response, 
 	return res.status(err.statusCode).json({ message: err.message });
 };
 
+export const catchAsync = (func: Function) => {
+	return (req: Request, res: Response, next: NextFunction) => {
+		func(req, res, next).catch((err: Error) => next(err));
+	}
+}
