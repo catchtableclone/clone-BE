@@ -1,4 +1,4 @@
-import { RestaurantQueryParams } from "../controllers/restaurantQueryParams";
+import { RestaurantQueryParams } from "../controllers/interfaces/restaurantQueryParams";
 
 
 interface StringNumberMapper {

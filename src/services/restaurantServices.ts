@@ -1,5 +1,6 @@
 import { RestaurantModel } from "../models/restaurantModel";
-import { RestaurantQueryParams } from "../controllers/restaurantQueryParams";
+import { RestaurantQueryParams } from "../controllers/interfaces/restaurantQueryParams";
+import { Menu, RestaurantDetail, Restaurants } from "../models/interfaces/restaurantModel";
 
 
 export class RestaurantServices {
@@ -7,15 +8,15 @@ export class RestaurantServices {
 		this.model = model;
 	}
 	
-	async getRestaurants (queryParams: RestaurantQueryParams): Promise<any> {
+	async getRestaurants (queryParams: RestaurantQueryParams): Promise<Restaurants | never> {
 		return await this.model.getRestaurants(queryParams);
 	}
 
-	async getRestaurantDetail (restaurantId: number): Promise<any> {
+	async getRestaurantDetail (restaurantId: string): Promise<RestaurantDetail | never> {
 		return await this.model.getRestaurantDetail(restaurantId);
 	}
 
-	async getMenues (restaurantId: number) {
+	async getMenues (restaurantId: string): Promise<Menu[] | never> {
 		return await this.model.getMenues(restaurantId);
 	}
 }
