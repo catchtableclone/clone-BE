@@ -24,8 +24,8 @@ describe("RestaurantService", () => {
 
 	describe("getRestaurantDetail", () => {
 		test.each([
-			{ inputs: 1, outputs: { id: 1, name: "restaurant1" }},
-			{ inputs: 2, outputs: { id: 2, name: "restaurant2" }}
+			{ inputs: "1", outputs: { id: "1", name: "restaurant1" }},
+			{ inputs: "2", outputs: { id: "2", name: "restaurant2" }}
 		])("given $inputs should return $outputs", async ({ inputs, outputs }) => {
 			// Arrange
 			const mockModel = new mockRestaurantModel();
@@ -43,8 +43,8 @@ describe("RestaurantService", () => {
 
 	describe("getMenues", () => {
 		test.each([
-			{ inputs: 1, outputs: { id: 1, name: "restaurant1" }},
-			{ inputs: 2, outputs: { id: 2, name: "restaurant2" }}
+			{ inputs: "1", outputs:	[{"description": "좋은 한정식 세트", "id": 1, "name": "한정식 코스", "price": "80000.000", "restaurant_id": 1}]},
+			{ inputs: "2", outputs: [{"description": "좋은 한정식 세트", "id": 2, "name": "한정식 코스", "price": "80000.000", "restaurant_id": 1}]}
 		])("given $inputs should return $outputs", async ({ inputs, outputs }) => {
 			// Arrange
 			const mockModel = new mockRestaurantModel();

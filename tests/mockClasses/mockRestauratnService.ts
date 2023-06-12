@@ -1,6 +1,6 @@
 import { RestaurantServices } from "../../src/services/restaurantServices";
 import { RestaurantModel } from "../../src/models/restaurantModel";
-import { RestaurantQueryParams } from "../../src/controllers/restaurantQueryParams";
+import { RestaurantQueryParams } from "../../src/controllers/interfaces/restaurantQueryParams";
 
 
 export class mockRestaurantService extends RestaurantServices {
@@ -10,11 +10,11 @@ export class mockRestaurantService extends RestaurantServices {
 		return [ { id: "TEST", name: "TEST" } ];
 	}
 
-	async getRestaurantDetail(restaurantId: number): Promise<any> {
+	async getRestaurantDetail(restaurantId: string): Promise<any> {
 		return { id: restaurantId, name: "TEST" };
 	}
 
-	async getMenues(restaurantId: number): Promise<any> {
+	async getMenues(restaurantId: string): Promise<any> {
 		return { id: restaurantId, name: "TEST" };
 	}
 }

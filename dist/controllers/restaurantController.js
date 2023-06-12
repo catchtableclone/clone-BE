@@ -14,7 +14,9 @@ const customError_1 = require("../utils/customError");
 class RestaurantsController {
     constructor(service) {
         this.service = service;
-        this.service = service;
+        this.getRestaurants = this.getRestaurants.bind(this);
+        this.getRestaurantsDetail = this.getRestaurantsDetail.bind(this);
+        this.getMenues = this.getMenues.bind(this);
     }
     getRestaurants(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -25,8 +27,8 @@ class RestaurantsController {
     }
     getRestaurantsDetail(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const restaurantId = req.params.id;
-            if (!restaurantId || typeof restaurantId !== "number")
+            const restaurantId = req.params.restaurantId;
+            if (!restaurantId)
                 throw new customError_1.CustomError("NOT VALID ID", 401);
             const data = yield this.service.getRestaurantDetail(restaurantId);
             return res.status(201).json(data);
@@ -34,8 +36,8 @@ class RestaurantsController {
     }
     getMenues(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const restaurantId = req.params.id;
-            if (!restaurantId || typeof restaurantId !== "number")
+            const restaurantId = req.body.restaurantId;
+            if (!restaurantId)
                 throw new customError_1.CustomError("NOT VALID ID", 401);
             const data = yield this.service.getMenues(restaurantId);
             return res.status(201).json(data);
