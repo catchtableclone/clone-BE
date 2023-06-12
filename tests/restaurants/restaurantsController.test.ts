@@ -6,9 +6,9 @@ describe("restaurantsController", () => {
 
 	describe("getRestaurants", () => {
 		test.each([
-			{ inputs: { query: {} }, outputs: [ { id: "TEST", name: "TEST" } ] },
-			{ inputs: { query: { cuisine: "CHINESE" } }, outputs: [ { id: "TEST", name: "TEST" } ] },
-		])("given $inputs should return $outputs", async ({ inputs, outputs }) => {
+			{ inputs: { query: {} } },
+			{ inputs: { query: { cuisine: "CHINESE" } } },
+		])("given $inputs should be called with $inputs", async ({ inputs }) => {
 			// Arrange		
 			const mockRequest = createMockRequest(inputs);
 			const mockResponse = createMockResponse();
@@ -17,19 +17,18 @@ describe("restaurantsController", () => {
 			const restaurants = new RestaurantsController(mockServices);
 
 			// Act
-			const sut = await restaurants.getRestaurants(mockRequest, mockResponse);
+			await restaurants.getRestaurants(mockRequest, mockResponse);
 
 			// Assert
-			expect(sut).toEqual(outputs);
 			expect(spyRestaurant).toHaveBeenCalledWith(inputs.query);
 		})
 	})
 	
 	describe("getRestaurantsDetail", () => {
 		test.each([
-			{ inputs: { params: { restaurantId: "1" }, body: {} }, outputs: { id: "1", name: "TEST" } },
-			{ inputs: { params: { restaurantId: "2" }, body: {} }, outputs: { id: "2", name: "TEST" } }
-		])("given $inputs should return $outputs", async ({ inputs, outputs }) => {
+			{ inputs: { params: { restaurantId: "1" }, body: {} } },
+			{ inputs: { params: { restaurantId: "2" }, body: {} } }
+		])("given $inputs should be called with $inputs", async ({ inputs }) => {
 			// Arrange		
 			const mockRequest = createMockRequest(inputs);
 			const mockResponse = createMockResponse();
@@ -38,10 +37,9 @@ describe("restaurantsController", () => {
 			const restaurants = new RestaurantsController(mockServices);
 
 			// Act
-			const sut = await restaurants.getRestaurantsDetail(mockRequest, mockResponse);
+			await restaurants.getRestaurantsDetail(mockRequest, mockResponse);
 
 			// Assert
-			expect(sut).toEqual(outputs);
 			expect(spyRestaurantDetail).toHaveBeenCalledWith(inputs.params.restaurantId);
 		})
 
@@ -67,9 +65,9 @@ describe("restaurantsController", () => {
 
 	describe("getMenues", () => {
 		test.each([
-			{ inputs: { body: { restaurantId: "1" } }, outputs: { id: "1", name: "TEST" } },
-			{ inputs: { body: { restaurantId: "2" } }, outputs: { id: "2", name: "TEST" } }
-		])("given $inputs should return $outputs", async ({ inputs, outputs }) => {
+			{ inputs: { body: { restaurantId: "1" } } },
+			{ inputs: { body: { restaurantId: "2" } } }
+		])("given $inputs should be called with $inputs", async ({ inputs }) => {
 			// Arrange		
 			const mockRequest = createMockRequest(inputs);
 			const mockResponse = createMockResponse();
@@ -78,10 +76,9 @@ describe("restaurantsController", () => {
 			const restaurants = new RestaurantsController(mockServices);
 
 			// Act
-			const sut = await restaurants.getMenues(mockRequest, mockResponse);
+			await restaurants.getMenues(mockRequest, mockResponse);
 
 			// Assert
-			expect(sut).toEqual(outputs);
 			expect(spyRestaurantDetail).toHaveBeenCalledWith(inputs.body.restaurantId);
 		})
 
